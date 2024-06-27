@@ -1,0 +1,22 @@
+INSERT INTO Students (first_name, last_name, date_of_birth, email, phone_number, address, enrollment_date, gpa)
+VALUES 
+('John', 'Doe', '2000-01-01', 'john.doe@example.com', '123-456-7890', '123 Main St', '2022-09-01', 3.5),
+('Jane', 'Smith', '1999-02-15', 'jane.smith@example.com', NULL, '456 Elm St', '2022-09-01', 3.8),
+('Michael', 'Johnson', '2001-03-20', 'michael.johnson@example.com', '987-654-3210', '789 Pine St', '2023-01-15', NULL),
+('Emily', 'Davis', '2000-04-25', 'emily.davis@example.com', NULL, '321 Oak St', '2023-01-15', 3.7),
+('William', 'Brown', '1998-05-30', 'william.brown@example.com', '555-123-4567', '654 Maple St', '2023-01-15', 3.2);
+
+INSERT INTO Courses (course_name, description, credits, department)
+VALUES 
+('Database Systems', 'Introduction to database design and SQL', 3, 'Computer Science'),
+('Calculus I', 'Differential and integral calculus', 4, 'Mathematics'),
+('English Literature', 'Study of classical English literature', 3, 'Humanities');
+
+
+INSERT INTO Enrollments (student_id, course_id, enrollment_date, grade)
+VALUES 
+(1, 1, '2023-01-15', 'A'),
+(2, 2, '2023-01-15', 'B'),
+(3, 3, '2023-01-15', 'C'),
+(4, 1, '2023-01-15', NULL),
+(5, 2, '2023-01-15', NULL);
