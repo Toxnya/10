@@ -1,0 +1,11 @@
+UPDATE Students
+SET phone_number = '111-222-3333', address = '987 New Address St'
+WHERE student_id = 1;
+
+UPDATE Courses
+SET description = 'Advanced study of classical English literature'
+WHERE course_id = 3;
+
+UPDATE Enrollments
+SET grade = 'A'
+WHERE enrollment_id = 4;

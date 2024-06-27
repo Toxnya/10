@@ -1,0 +1,30 @@
+CREATE VIEW StudentEnrollments AS
+SELECT s.student_id, s.first_name, s.last_name, c.course_name, e.enrollment_date, e.grade
+FROM Students s
+JOIN Enrollments e ON s.student_id = e.student_id
+JOIN Courses c ON e.course_id = c.course_id;
+
+CREATE OR REPLACE FUNCTION ADDStudentAndEnroll(
+	firstName VARCHAR(50), 
+    lastName VARCHAR(50), 
+    dob DATE, 
+    email VARCHAR(100), 
+    phone VARCHAR(20), 
+    address TEXT, 
+    enrollDate DATE, 
+    gpa DECIMAL(3,2), 
+    courseId INT
+)
+
+RETURNS VOID AS $$ 
+DECLARE
+	newStudentId INT;
+BEGIN
+    INSERT INTO Students (first_name, last_name, date_of_birth, email, phone_number, address, enrollment_date, gpa)
+    VALUES (firstName, lastName, dob, email, phone, address, enrollDate, gpa)
+    RETURNING student_id INTO newStudentId;
+    
+    INSERT INTO Enrollments (student_id, course_id, enrollment_date)
+    VALUES (newStudentId, courseId, enrollDate);
+END;
+$$ LANGUAGE plpgsql;
